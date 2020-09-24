@@ -1,8 +1,25 @@
 <template>
-  <div id="app">
-    <router-view />
+  <div class="layout-container">
+    <menu-item></menu-item>
+
+    <div class="content-box">
+      <router-view></router-view>
+
+      <div id="frame"></div>
+    </div>
   </div>
 </template>
+
+<script>
+import Menu from "./layout/Menu";
+
+export default {
+  name: "App",
+  components: {
+    "menu-item": Menu
+  }
+};
+</script>
 
 <style lang="scss">
 #app {
@@ -20,16 +37,10 @@ p {
   padding: 0;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.layout-container {
+  .content-box {
+    margin-left: 210px;
+    height: 100vh;
   }
 }
 </style>

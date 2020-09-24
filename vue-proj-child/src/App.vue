@@ -1,12 +1,29 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link :to="base + '/'">Home</router-link> |
+      <router-link :to="base + '/about'">About</router-link>
+      <button @click="testBtn">测试</button>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      base: window.base
+    };
+  },
+  methods: {
+    testBtn() {
+      this.$router.push(this.base + "/test/one");
+    }
+  }
+};
+</script>
 
 <style lang="scss">
 #app {

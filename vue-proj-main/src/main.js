@@ -19,13 +19,18 @@ new Vue({
   render: h => h(App)
 }).$mount("#app");
 
+// function genActiveRule(routerPrefix) {
+//   return location => location.hash.startsWith("#" + routerPrefix);
+// }
+
 // 注册微应用
 registerMicroApps([
   {
     name: "vue-proj-child",
     entry: "http://localhost:3080",
     container: "#frame",
-    activeRule: "/vue-proj-child",
+    // activeRule: genActiveRule("/vue-proj-child"),
+    activeRule: "/#/vue-proj-child",
     props: {
       data: { store, router }
     }

@@ -7,14 +7,17 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
+// 配置基准路径
+window.base = window.__POWERED_BY_QIANKUN__ ? "/vue-proj-child" : "";
+
 let router = null;
 let instance = null;
 
 function render({ data = {} } = {}) {
   router = new VueRouter({
-    mode: "history",
-    routes,
-    base: window.__POWERED_BY_QIANKUN__ ? "/vue-proj-child" : "/"
+    // mode: "history",
+    routes
+    // base: window.__POWERED_BY_QIANKUN__ ? "/vue-proj-child" : "/"
   });
   instance = new Vue({
     router,
