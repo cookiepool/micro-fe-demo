@@ -1,0 +1,43 @@
+
+.app {
+  height: 100vh;
+  text-align: center;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #000;
+  font-size: 18px;
+  span {
+    font-size: 18px;
+    color: #000;
+    text-decoration: underline;
+  }
+}
+.content {
+  margin-top: 36px;
+}
+.line {
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  margin: 0 16px;
+  background-color: blueviolet;
+}
+.all-wraper {
+  text-align: center;
+}
+.text {
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+}
+.wraper {
+  .content {
+    font-size: 32px;
+  }
+}

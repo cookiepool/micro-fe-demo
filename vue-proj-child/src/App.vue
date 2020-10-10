@@ -2,8 +2,8 @@
   <div id="app">
     <div id="nav">
       <router-link :to="base + '/'">Home</router-link> |
-      <router-link :to="base + '/about'">About</router-link>
-      <button @click="testBtn">测试</button>
+      <router-link :to="base + '/about'">About</router-link> |
+      <router-link :to="base + '/test/one'">Test</router-link>
     </div>
     <router-view />
   </div>

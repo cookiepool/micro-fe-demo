@@ -34,6 +34,12 @@ registerMicroApps([
     props: {
       data: { store, router }
     }
+  },
+  {
+    name: "react-proj-child",
+    entry: "http://localhost:3000",
+    container: "#frame",
+    activeRule: ""
   }
 ]);
 
