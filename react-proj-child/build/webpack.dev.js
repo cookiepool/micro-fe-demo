@@ -54,6 +54,9 @@ module.exports = webpackMerge(webpackCommonConfig, {
       errors: true,
       warnings: true
     },
-    quiet: true
+    quiet: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
   }
 })

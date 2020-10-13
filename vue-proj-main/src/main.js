@@ -37,9 +37,9 @@ registerMicroApps([
   },
   {
     name: "react-proj-child",
-    entry: "http://localhost:3000",
+    entry: "http://localhost:9866",
     container: "#frame",
-    activeRule: ""
+    activeRule: "/#/react-proj-child"
   }
 ]);
 

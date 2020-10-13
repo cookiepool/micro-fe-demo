@@ -1,4 +1,5 @@
 const path = require('path');
+const { name } = require("../package.json");
 
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
@@ -11,7 +12,10 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].[hash:4].js',
     chunkFilename: 'js/[name].[hash:4].js',
-    publicPath: '/' 
+    publicPath: '/',
+    library: `${name}`,
+    libraryTarget: "umd", // 把子应用打包成 umd 库格式
+    jsonpFunction: `webpackJsonp_${name}`
   },
   module: {
     rules: [

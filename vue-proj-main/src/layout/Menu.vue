@@ -13,7 +13,7 @@
         <el-menu-item index="/app-main">主应用</el-menu-item>
         <el-menu-item index="/show-msg">主应用-显示消息</el-menu-item>
         <el-menu-item index="/vue-proj-child/">微应用Vue</el-menu-item>
-        <el-menu-item index="1-3">微应用React</el-menu-item>
+        <el-menu-item index="/react-proj-child">微应用React</el-menu-item>
       </el-submenu>
     </el-menu>
   </div>
