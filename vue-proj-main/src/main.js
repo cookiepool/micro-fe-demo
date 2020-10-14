@@ -32,7 +32,7 @@ registerMicroApps([
     // activeRule: genActiveRule("/vue-proj-child"),
     activeRule: "/#/vue-proj-child",
     props: {
-      data: { store, router }
+      store
     }
   },
   {

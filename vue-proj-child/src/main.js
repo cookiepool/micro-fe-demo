@@ -14,7 +14,7 @@ let router = null;
 let instance = null;
 
 // 声明渲染函数
-function render({ data = {} } = {}) {
+function render(props = {}) {
   router = new VueRouter({
     // mode: "history",
     routes
@@ -25,14 +25,10 @@ function render({ data = {} } = {}) {
     store,
     data() {
       return {
-        parentRouter: data.router || 233,
-        parentVuex: data.store || 23333
+        parentVuex: props.store || {}
       };
     },
-    mounted() {
-      console.log(this.parentRouter);
-      console.log(this.parentVuex);
-    },
+    mounted() {},
     render: h => h(App)
   }).$mount("#appChild");
 }
@@ -41,9 +37,6 @@ function render({ data = {} } = {}) {
 if (!window.__POWERED_BY_QIANKUN__) {
   render();
 }
-
-// 测试全局变量污染
-console.log("window.a", window.a);
 
 // 调用qiankun的三个钩子函数
 // bootstrap 只会在微应用初始化的时候调用一次，下次微应用重新进入时会直接调用 mount 钩子，不会再重复触发 bootstrap。
