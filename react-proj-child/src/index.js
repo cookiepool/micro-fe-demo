@@ -8,7 +8,10 @@ import './public-path';
 // ReactDOM.render(<App />, document.getElementById('root'));
 
 // 声明渲染函数
-function render() {
+function render(props) {
+  props.onGlobalStateChange((state, prev) => {
+    console.log(state);
+  })
   ReactDOM.render(
     <React.StrictMode>
       <App />

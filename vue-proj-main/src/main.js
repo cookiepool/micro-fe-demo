@@ -9,7 +9,7 @@ import "element-ui/lib/theme-chalk/index.css";
 Vue.use(ElementUI);
 
 // 引入乾坤
-import { registerMicroApps, start } from "qiankun";
+import { registerMicroApps, start, initGlobalState } from "qiankun";
 
 Vue.config.productionTip = false;
 
@@ -22,6 +22,12 @@ new Vue({
 // function genActiveRule(routerPrefix) {
 //   return location => location.hash.startsWith("#" + routerPrefix);
 // }
+
+// 数据通讯
+// 注册一个action
+let initState = {};
+const actions = initGlobalState(initState);
+Vue.prototype.$qiankunActions = actions;
 
 // 注册微应用
 registerMicroApps([
