@@ -23,9 +23,10 @@
   },
   "homepage": "https://github.com/cookiepool/react-douban#readme",
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/preset-react": "^7.8.3",
+    "@babel/core": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
     "@intervolga/optimize-cssnano-plugin": "^1.0.6",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",

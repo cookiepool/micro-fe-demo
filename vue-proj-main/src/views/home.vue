@@ -8,8 +8,9 @@
     </div>
     <hr />
     <div class="test-share">
-      <button @click="modifiyReactVar">修改数值-React</button>
-      <p>{{ shareVarReact }}</p>
+      <button @click="modifiyReactVar">修改数值</button>
+      <p>修改过后的值-传递给子应用：{{ shareCurVarReact }}</p>
+      <p>来自子应用react的值：{{ shareVarReact }}</p>
     </div>
   </div>
 </template>
@@ -19,7 +20,8 @@ export default {
   name: "Home",
   data() {
     return {
-      shareVarReact: 0
+      shareVarReact: 0,
+      shareCurVarReact: 0
     };
   },
   computed: {
@@ -35,15 +37,18 @@ export default {
     // 注册一个观察函数
     this.$qiankunActions.onGlobalStateChange((state, prev) => {
       console.log(state, prev);
-      this.shareVarReact = state.num;
-    });
+
+      this.shareVarReact = prev.num;
+      this.shareCurVarReact = state.num;
+    }, true);
   },
   methods: {
     modifiyVar() {
       this.$store.commit("modifiy", 2001);
     },
     modifiyReactVar() {
-      this.$qiankunActions.setGlobalState({ num: 3000 });
+      let num = this.shareCurVarReact;
+      this.$qiankunActions.setGlobalState({ num: ++num });
     }
   }
 };
@@ -62,6 +67,5 @@ export default {
       margin-top: 24px;
     }
   }
-
 }
 </style>

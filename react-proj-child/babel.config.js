@@ -5,5 +5,6 @@ module.exports = {
       'useBuiltIns': 'usage',
       'corejs': '3.6'
     }]
-  ]
+  ],
+  plugins: ["@babel/plugin-proposal-class-properties"]
 }

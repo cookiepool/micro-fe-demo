@@ -9,9 +9,6 @@ import './public-path';
 
 // 声明渲染函数
 function render(props) {
-  props.onGlobalStateChange((state, prev) => {
-    console.log(state);
-  })
   ReactDOM.render(
     <React.StrictMode>
       <App />
@@ -26,6 +23,10 @@ if (!window.__POWERED_BY_QIANKUN__) {
   render();
 }
 
+// 子应用定义监听函数等
+export let onGlobalStateChange;
+export let setGlobalState;
+
 // 调用qiankun的三个钩子函数
 // bootstrap 只会在微应用初始化的时候调用一次，下次微应用重新进入时会直接调用 mount 钩子，不会再重复触发 bootstrap。
 // 通常我们可以在这里做一些全局变量的初始化。
@@ -35,6 +36,9 @@ export async function bootstrap() {
 
 // 触发应用的渲染方法
 export async function mount(props) {
+  onGlobalStateChange = props.onGlobalStateChange;
+  setGlobalState = props.setGlobalState;
+
   console.log("react app mount", props);
   render(props);
 }

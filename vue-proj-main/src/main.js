@@ -19,13 +19,15 @@ new Vue({
   render: h => h(App)
 }).$mount("#app");
 
-// function genActiveRule(routerPrefix) {
-//   return location => location.hash.startsWith("#" + routerPrefix);
-// }
+function genActiveRule(routerPrefix) {
+  return location => location.hash.startsWith("#" + routerPrefix);
+}
 
 // 数据通讯
 // 注册一个action
-let initState = {};
+let initState = {
+  num: 0
+};
 const actions = initGlobalState(initState);
 Vue.prototype.$qiankunActions = actions;
 
@@ -35,8 +37,7 @@ registerMicroApps([
     name: "vue-proj-child",
     entry: "http://localhost:3080",
     container: "#frame",
-    // activeRule: genActiveRule("/vue-proj-child"),
-    activeRule: "/#/vue-proj-child",
+    activeRule: genActiveRule("/vue-proj-child"),
     props: {
       store
     }
@@ -45,7 +46,7 @@ registerMicroApps([
     name: "react-proj-child",
     entry: "http://localhost:9866",
     container: "#frame",
-    activeRule: "/#/react-proj-child"
+    activeRule: genActiveRule("/react-proj-child")
   }
 ]);
 
